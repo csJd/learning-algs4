@@ -7,15 +7,19 @@ public class Deque<Item> implements Iterable<Item> {
     private Node last;
     private int n;
 
-    private class Node {
-        Item item;
-        Node next;
-        Node prev;
-    }
-
     public Deque() {                           // construct an empty deque
         first = last = null;
         n = 0;
+    }
+
+    public static void main(String[] args) {   // unit testing (optional)
+        Deque<Integer> dq = new Deque<Integer>();
+        for (int i = 0; i < 10; ++i) {
+            dq.addFirst(i);
+        }
+        for (int i : dq) {
+            System.out.println(i);
+        }
     }
 
     public boolean isEmpty() {                 // is the deque empty?
@@ -119,13 +123,9 @@ public class Deque<Item> implements Iterable<Item> {
         };
     }
 
-    public static void main(String[] args) {   // unit testing (optional)
-        Deque<Integer> dq = new Deque<Integer>();
-        for (int i = 0; i < 10; ++i) {
-            dq.addFirst(i);
-        }
-        for (int i : dq) {
-            System.out.println(i);
-        }
+    private class Node {
+        Item item;
+        Node next;
+        Node prev;
     }
 }
